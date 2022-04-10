@@ -1,0 +1,48 @@
+<!-- Control Panel Interested Customers -->
+
+<%- include ('partials/_head.ejs') -%>
+
+    <header>
+        <nav class="navbar navbar-expand-lg nav-xatruch nav-panel">
+            <a href="/panel" class="navbar-brand">
+                <img src="./img/icon.png" class="img-logo" alt="logo">
+                <span class="brand"> XATRUCH </span>
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container container-panel">
+
+            <div class="col-lg-12">
+                <div class="card panel-description">
+                    <div class="card-header">
+                        <i class="fas fa-list"></i> <span> Panel de Control </span>
+                    </div>
+                    <div class="card-body">
+                        <% if (login) { %>
+                            <h5 class="card-title title-user"> 
+                                💈 ¡Bienvenido, <strong> <%= name %>  </strong> ! 💈 
+                            </h5>
+                        <% }  %>
+                        
+                        <p> Listado de Interesados </p>
+                        <%- include ('partials/_list.ejs') -%>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <%- include ('partials/__footer.ejs') -%>
+<%- include ('partials/_foot.ejs') -%>

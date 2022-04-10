@@ -1,0 +1,92 @@
+<table id="customers" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Email</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Suscripción</th>
+      <th class="text-center" scope="col">Estatus</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data) { %>
+      <% for (var i=0; i < data.length; i++) { %>
+        <tr>
+          <td>
+            <%= data[i].customer_fullname %>
+          </td>
+          <td> <a href="mailto:<%= data[i].email %>">
+              <%= data[i].email %>
+            </a></td>
+          <td>
+            <%= data[i].cel %>
+          </td>
+          <td>
+            <%= data[i].desc_suscription %>
+          </td>
+          <td class="text-center">
+            <% if (data[i].status_contact===0) { %>
+              <input type="checkbox" value="" class="contacted">
+              <% } %>
+                <% if (data[i].status_contact===1) { %>
+                  <input type="checkbox" value="" class="contacted" checked>
+                  <% } %>
+          </td>
+          <td class="text-right">
+            <button id="edit" class="btn btn-dark btn-sm mb-1 ml-1 idEdit_data btn__customer-edit"
+              title="Editar Estatus" data-toggle="modal" data-target="#editInfo" data-customer="<%= data[i].id %>">
+              <box-icon class="edit" name='edit' type='solid' color='#ffffff'></box-icon>
+            </button>
+          </td>
+        </tr>
+        <% } %>
+          <% } %>
+
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="editInfo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar estatus de cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/test1" method="post" id="edit-form" name="edit-form">
+
+          <!-- Input Customer Name -->
+          <div class="form-group">
+            <label class="col-form-label">Nombre del Interesado</label>
+            <input type="text" class="form-control" id="fullname-customer" disabled>
+          </div>
+
+          <!-- Radio Buttons -->
+          <div class="form-group">
+            <label class="col-form-label">Estatus</label>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="contacted" name="status_contact" value="1" class="custom-control-input">
+              <label class="custom-control-label" for="contacted">Contactado</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="uncontacted" name="status_contact" value="0" class="custom-control-input">
+              <label class="custom-control-label" for="uncontacted">Sin contactar</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-dark edit-customer float-right">
+            <i class="fas fa-save"></i> Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script List Customers -->
+<script src="/js/operator_edit.js"></script>
+<script src="/js/table.js"></script>
