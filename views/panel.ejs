@@ -23,7 +23,7 @@
     </header>
     <main>
 
-        <div class="container container-panel">
+        <div class="container-fluid container-panel">
 
             <div class="col-lg-12">
                 <div class="card panel-description">
@@ -36,12 +36,14 @@
                                 💈 ¡Bienvenido, <strong> <%= name %>  </strong> ! 💈 
                             </h5>
                         <% }  %>
-                        
-                        <p> Listado de Interesados </p>
-                        <%- include ('partials/_list.ejs') -%>
                     </div>
                 </div>
+                <div class="mt-4">
+                    <h4> Listado de Interesados </h4>
+                    <%- include ('partials/_list.ejs') -%>
+                </div>
             </div>
+        </div>
     </main>
 
     <%- include ('partials/__footer.ejs') -%>

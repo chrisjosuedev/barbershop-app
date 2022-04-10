@@ -16,5 +16,6 @@ $(function () {
       infoFiltered: "(Filtrado de _MAX_ total de entradas)",
       lengthMenu: "Mostrar _MENU_ entradas",
     },
+    responsive: true
   });
 });
