@@ -5,7 +5,7 @@ Xatruch Barbershop App is Web Application with with customer list management.
 
 👉🏻 Check it out: (https://barbershop-app-web.herokuapp.com/)
 
-😎 You can use this temp credentials (Panel de Control):
+😎 You can use this temp credentials (<Panel de Control> in footer):
 - user: guest.user
 - password: temp
 
